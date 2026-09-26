@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030711">
+  <title>เรื่องเล่าระหว่างเรา — เกมเลือกเส้นทาง</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="effects-layer" id="effects-layer" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#" aria-label="กลับหน้าหลัก" id="home-link">
+        <span class="wordmark-mark" aria-hidden="true">✳</span>
+        <span>เรื่องเล่าระหว่างเรา</span>
+      </a>
+      <span class="topbar-note">A choose your own adventure</span>
+    </header>
+
+    <section class="screen home-screen" id="home-screen">
+      <div class="landing-hero" id="landing-hero">
+        <div class="landing-sky" aria-hidden="true">
+          <div class="landing-stars"></div>
+          <div class="nebula nebula-one"></div>
+          <div class="nebula nebula-two"></div>
+          <div class="earth-orbit"></div>
+          <div class="earth-atmosphere" id="earth-atmosphere">
+            <div class="earth" id="earth">
+              <div class="earth-land"></div>
+              <div class="continent continent-north"></div>
+              <div class="continent continent-south"></div>
+              <div class="continent continent-east"></div>
+              <div class="earth-clouds"></div>
+              <div class="earth-night"></div>
+            </div>
+          </div>
+          <div class="space-dust dust-one"></div>
+          <div class="space-dust dust-two"></div>
+          <div class="space-dust dust-three"></div>
+          <div class="architecture orbital-satellite" id="architecture" role="button" tabindex="0" aria-label="ยานสำรวจ — กดเพื่อเริ่มเดินทางเข้าสู่โลกเรื่องเล่า">
+            <div class="satellite-model">
+              <div class="satellite-panel panel-left"><span></span><span></span><span></span></div>
+              <div class="satellite-joint joint-left"></div>
+              <div class="satellite-body">
+                <div class="satellite-body-face"></div>
+                <div class="satellite-window"></div>
+                <div class="satellite-antenna"></div>
+                <div class="satellite-boom"></div>
+              </div>
+              <div class="satellite-joint joint-right"></div>
+              <div class="satellite-panel panel-right"><span></span><span></span><span></span></div>
+              <div class="satellite-glint"></div>
+            </div>
+            <span class="satellite-hotspot" aria-hidden="true"></span>
+            <span class="satellite-prompt" aria-hidden="true">CLICK TO BOARD <span>↗</span></span>
+          </div>
+          <div class="shooting-star shooting-star-one"></div>
+          <div class="shooting-star shooting-star-two"></div>
+        </div>
+        <div class="welcome-transmission" id="welcome-transmission" aria-live="polite" hidden>
+          <p class="transmission-kicker">INCOMING TRANSMISSION · 001</p>
+          <h2>ยินดีต้อนรับ<br><span>นักเดินทาง</span></h2>
+          <p>จักรวาลนี้เต็มไปด้วยเรื่องราวที่ยังไม่มีคำตอบ<br>เลือกเส้นทาง แล้วค้นพบสิ่งที่ซ่อนอยู่ระหว่างทาง</p>
+          <span class="transmission-status"><i></i> กำลังเชื่อมต่อสู่โลกเรื่องเล่า</span>
+        </div>
+        <div class="landing-copy">
+          <p class="eyebrow"><span class="status-dot"></span> A SMALL UNIVERSE OF STORIES · 01—50</p>
+          <h1>เรื่องเล่า<br><span>ระหว่างเรา</span></h1>
+          <p class="intro">
+            บางเรื่องพาเรากลับไปพบใครบางคน<br class="desktop-break">
+            บางเรื่องพาเรากลับมาพบตัวเอง
+          </p>
+        </div>
+        <div class="landing-index" aria-hidden="true">
+          <span class="index-coordinate">13° 45' N</span>
+          <span>50 STORIES · ENDLESS PATHS</span>
+        </div>
+        <div class="landing-scroll"><span></span> SELECT THE SPACECRAFT TO BEGIN</div>
+      </div>
+      <footer class="home-footer">เลือกตามความรู้สึกแรกก็ได้ หรือจะใช้เวลาคิดก็ได้เหมือนกัน</footer>
+    </section>
+
+    <section class="screen library-screen" id="library-screen" hidden>
+      <div class="library-heading">
+        <button class="text-button" id="library-home-button" type="button">
+          <span aria-hidden="true">←</span> หน้าหลัก
+        </button>
+        <p class="eyebrow">คลังเรื่องเล่า · 50 เรื่อง</p>
+        <h1>คืนนี้อยากเดินเข้าไป<br><span>ในเรื่องไหน?</span></h1>
+        <p class="intro">เลือกเรื่องที่ใช่ แต่ละเรื่องมีบรรยากาศเฉพาะตัวและ 15–20 ฉากให้ค่อย ๆ เดินทาง</p>
+      </div>
+      <div class="story-grid" id="story-grid" aria-label="เลือกเรื่องที่จะเล่น"></div>
+      <footer class="home-footer">เรื่องเล่าเหล่านี้เป็นพื้นที่ชวนคิด ไม่ใช่คำวินิจฉัยหรือคำทำนายอนาคต</footer>
+    </section>
+
+    <section class="screen story-screen" id="story-screen" hidden aria-live="polite">
+      <div class="story-topline">
+        <button class="text-button" id="back-button" type="button" disabled>
+          <span aria-hidden="true">←</span> ย้อนกลับ
+        </button>
+        <div class="progress" aria-label="ความคืบหน้า">
+          <span class="progress-label" id="progress-label">เรื่องเล่า</span>
+          <span class="progress-count" id="progress-count"></span>
+        </div>
+      </div>
+
+      <div class="world-art" id="world-art" aria-hidden="true">
+        <span class="world-symbol" id="world-symbol"></span>
+        <span class="world-name" id="world-name"></span>
+        <span class="world-detail world-detail-one" id="world-detail-one"></span>
+        <span class="world-detail world-detail-two" id="world-detail-two"></span>
+        <span class="world-detail world-detail-three" id="world-detail-three"></span>
+      </div>
+
+      <article class="story-card">
+        <p class="eyebrow" id="scene-kicker"></p>
+        <h2 id="scene-title"></h2>
+        <div class="story-text" id="scene-text"></div>
+        <div class="choices" id="choices"></div>
+        <div class="ending-actions" id="ending-actions" hidden>
+          <button class="primary-button" id="replay-button" type="button">
+            อ่านอีกครั้ง <span aria-hidden="true">↻</span>
+          </button>
+          <button class="text-button" id="home-button" type="button">กลับหน้าหลัก</button>
+          <button class="text-button" id="library-button" type="button">เลือกเรื่องอื่น</button>
+        </div>
+      </article>
+      <p class="story-footnote">เรื่องนี้ไม่มีคำตอบที่ถูกที่สุด มีแค่ทางที่คุณเลือกในตอนนี้</p>
+    </section>
+  </main>
+</body>
+</html>
